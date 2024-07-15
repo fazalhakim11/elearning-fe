@@ -1,11 +1,26 @@
-import axios from "axios";
+import { useEffect } from "react";
+import { useGetKelas } from "../../hooks/useGetKelas";
 
 const index = (props) => {
-    const clsses = axios.get("")
+    const [isLoading, data, getClasses] = useGetKelas()
+    
+    useEffect (()=>{
+        getClasses()
+    },[])
+    console.log(data)
   return (
-    <div>
-      Ini Kelas
-    </div>
+    <>
+        <h1>Pilih Kelas</h1>
+        {isLoading? 
+            <p>Loading...</p>
+        : 
+        <div>
+            {data.map((kelas) => (
+                <button key={kelas.id}>{kelas.nama}</button>    
+            ))}
+        </div>
+        }
+    </>
   )
 };
 
