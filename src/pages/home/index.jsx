@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { useGetKelas } from "../../hooks/useGetKelas";
+import { useGetClasses } from "../../hooks/useGetClasses";
 
 const Home = (props) => {
-    const [isLoading, data, getClasses] = useGetKelas()
+    const [isLoading, data, getClasses] = useGetClasses()
     
     useEffect (()=>{
         getClasses()
