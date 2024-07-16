@@ -3,7 +3,7 @@ const index = (props) => {
     const navigate = useNavigate()
   return (
     props.login?
-        <div className="flex flex-col content-center mt-16">
+        <div className="flex flex-col content-center mt-12">
           <form className="flex flex-col self-center">
             <h1 className="mb-20 text-4xl font-extrabold">Log In</h1>
             <label htmlFor="email" className="text-[#858897]">Email</label>
@@ -15,7 +15,7 @@ const index = (props) => {
             <p className="text-[#858897] self-center">Don't have an account? <button onClick={()=>{navigate("/signup")}} className="text-[#3D5CFF]">Sign Up</button></p>
         </div>
     :
-        <div className="flex flex-col content-center mt-16">
+        <div className="flex flex-col content-center mt-12">
           <form className="flex flex-col self-center">
             <h1 className="mb-10 text-4xl font-extrabold">Sign Up</h1>
             <label htmlFor="username" className="text-[#858897]">Username</label>
