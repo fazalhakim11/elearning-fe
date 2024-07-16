@@ -1,15 +1,20 @@
 import { useState } from "react"
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 
 export const useGetClasses =()=>{
+    const location = useLocation()
+    const user = location.state?.user.data
+
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData] = useState([])
+    console.log(user.token)
     const getClasses = async ()=>{
         try{
             setIsLoading(true)
             const res = await axios.get("http://localhost:9000/api/kelas/",{
                 headers: {
-                    'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwiaWF0IjoxNzIxMTEzODU1fQ.w_D526puC22nnswiLwNX3RJHFmEoyySwJJli0FjDews` // Using Bearer token authentication
+                    'Authorization' : `Bearer ${user.token}` // Using Bearer token authentication
                 }
             }) 
             setIsLoading(false)
@@ -18,5 +23,5 @@ export const useGetClasses =()=>{
             console.log(err)
         }
     } 
-    return [ isLoading, data, getClasses]
+    return [ isLoading, data, getClasses, user]
 }

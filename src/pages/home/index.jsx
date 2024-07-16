@@ -2,15 +2,16 @@ import { useEffect } from "react";
 import { useGetClasses } from "../../hooks/useGetClasses";
 
 const Home = (props) => {
-    const [isLoading, data, getClasses] = useGetClasses()
+    const [isLoading, data, getClasses, user] = useGetClasses()
+    const firstName = user.nama.split(" ")[0]
     
     useEffect (()=>{
         getClasses()
     },[])
-    console.log(data)
   return (
     <div >
-        <h1 className="mb-8 text-2xl font-bold text-slate-900">Pilih Kelas</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Halo {firstName},</h1>
+        <h1 className="mb-8 text-lg font-medium text-slate-900">Silahkan pilih kelas</h1>
         {isLoading? 
             <p className="mt-[35vh] text-center text-slate-900">Loading...</p>
         : 
