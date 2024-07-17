@@ -5,6 +5,7 @@ import {
 import Login from "../pages/login"
 import Signup from "../pages/signup"
 import Classes from "../pages/home"
+import Subjects from "../pages/subjects"
 
 const index = () => {
     const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const index = () => {
         {
         path: "/classes",
         element: <Classes/>
+        },
+        {
+        path: "/subjects",
+        element: <Subjects/>
         },
       ])
     return (
