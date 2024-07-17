@@ -31,9 +31,9 @@ const Home = (props) => {
                             onClick={()=>handleBtn(kelas.id)}
                             disabled={kelas.id > 2} 
                             className= {kelas.id > 2 ? 
-                                "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 px-2 py-1 w-1/2 md:w-[100%]" 
+                                "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
                                 : 
-                                "bg-slate-950 text-white self-center rounded mb-2 md:mb-0 px-2 py-1 w-1/2 md:w-[100%]"}
+                                "bg-slate-950 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
                         >
                             {kelas.nama}
                         </button>

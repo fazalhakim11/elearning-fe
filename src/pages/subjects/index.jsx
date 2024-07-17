@@ -29,11 +29,14 @@ const index = (props) => {
     }, [])
 
   return (
-    subjects.map((subject)=>
-    <div key={subject.id}>
-        {subject.nama}
-    </div>
-    )
+    subjects.length > 1 ?
+        subjects.map((subject)=>
+            <div key={subject.id}>
+                {subject.nama}
+            </div>
+        )
+    :
+        <p>Not Found</p>
   )
 };
 
