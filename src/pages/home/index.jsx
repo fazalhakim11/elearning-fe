@@ -24,16 +24,16 @@ const Home = (props) => {
         {isLoading? 
             <p className="mt-[35vh] text-center text-slate-900">Loading...</p>
         : 
-            <div className="flex flex-col md:flex-row flex-wrap" >
+            <div className="flex flex-col md:flex-row md:justify-center md:gap-8 md:flex-wrap" >
                 {data.map((kelas) => (
-                    <div className="flex flex-col mb-3" key={kelas.id}>
+                    <div className="flex flex-col mb-3 md:mb-0 md:basis-1/4" key={kelas.id}>
                         <button
                             onClick={()=>handleBtn(kelas.id)}
                             disabled={kelas.id > 2} 
                             className= {kelas.id > 2 ? 
-                                "bg-slate-600 text-white self-center rounded mb-2 px-2 py-1 w-1/2" 
+                                "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 px-2 py-1 w-1/2 md:w-[100%]" 
                                 : 
-                                "bg-slate-950 text-white self-center rounded mb-2 px-2 py-1 w-1/2"}
+                                "bg-slate-950 text-white self-center rounded mb-2 md:mb-0 px-2 py-1 w-1/2 md:w-[100%]"}
                         >
                             {kelas.nama}
                         </button>

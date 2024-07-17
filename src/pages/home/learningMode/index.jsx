@@ -30,7 +30,7 @@ const LearningMode = (props) => {
     data.map((data, index)=>
     <button 
         key={index} 
-        className="text-center border-b-2 border-black w-max self-center">
+        className="text-center self-center">
       {data.nama}
     </button>
     )
