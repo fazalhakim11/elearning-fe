@@ -8,7 +8,7 @@ export const useGetClasses =()=>{
 
     const [isLoading, setIsLoading] = useState(false)
     const [data, setData] = useState([])
-    console.log(user.token)
+    
     const getClasses = async ()=>{
         try{
             setIsLoading(true)

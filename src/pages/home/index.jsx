@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useGetClasses } from "../../hooks/useGetClasses";
+import LearningMode from "./learningMode"
 
 const Home = (props) => {
     const [isLoading, data, getClasses, user] = useGetClasses()
@@ -8,6 +9,14 @@ const Home = (props) => {
     useEffect (()=>{
         getClasses()
     },[])
+
+    const [isToggle, setIsToggle] = useState(false)
+    const [kelasId, setKelasId] = useState()
+    const handleBtn =(kelasId)=>{
+        setIsToggle(!isToggle)
+        setKelasId(kelasId)
+    }
+
   return (
     <div >
         <h1 className="text-2xl font-bold text-slate-900">Halo {firstName},</h1>
@@ -15,20 +24,28 @@ const Home = (props) => {
         {isLoading? 
             <p className="mt-[35vh] text-center text-slate-900">Loading...</p>
         : 
-        <div className="flex sm:flex-col md:flex-row sm:content-center md:justify-center flex-wrap">
-            {data.map((kelas) => (
-                <button
-                    disabled={kelas.id > 2} 
-                    className= {kelas.id > 2 ? 
-                        "text-[#c8c8c8] bg-slate-500 mb-5 sm:w-1/2 md:w-1/4 grow rounded sm:p-2 md:mx-2 md:py-3" 
-                        : 
-                        "text-[#ffffff] bg-slate-900 mb-5 sm:w-1/2 md:w-1/4 grow rounded sm:p-2 md:mx-2  md:py-3"}
-                    key={kelas.id}
-                >
-                    {kelas.nama}
-                </button>    
-            ))}
-        </div>
+            <div className="flex flex-col md:flex-row flex-wrap" >
+                {data.map((kelas) => (
+                    <div className="flex flex-col mb-3" key={kelas.id}>
+                        <button
+                            onClick={()=>handleBtn(kelas.id)}
+                            disabled={kelas.id > 2} 
+                            className= {kelas.id > 2 ? 
+                                "bg-slate-600 text-white self-center rounded mb-2 px-2 py-1 w-1/2" 
+                                : 
+                                "bg-slate-950 text-white self-center rounded mb-2 px-2 py-1 w-1/2"}
+                        >
+                            {kelas.nama}
+                        </button>
+                        {isToggle && kelasId === kelas.id ?
+                        <LearningMode kelas={kelas.id}/>  
+                        :
+                        ""
+                        }
+                    </div>  
+                ))}
+            </div>
+
         }
     </div>
   )

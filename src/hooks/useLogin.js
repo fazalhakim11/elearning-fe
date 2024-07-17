@@ -17,9 +17,7 @@ export const useLogin = () => {
                 password,
             });
             // Handle successful login, e.g., store token, redirect user
-            console.log(response.data);
             navigate("/classes", { state: { user: response.data } })
-            // return response.data
         } catch (err) {
             // Handle error
             setError(err.response ? err.response.data.message : 'Login failed');
