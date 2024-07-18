@@ -41,28 +41,30 @@ const Subjects = (props) => {
                             <h1 className="text-2xl text-white mb-1 font-bold">Courses</h1>
                             <p className="text-white text-sm">Please select course you want to study</p>
                         </header>
+                        <div className="mdd:flex mdd:justify-between md:justify-start md:gap-3 lg:gap-6 mdd:m-8 flex-wrap">
                         {subjects.map((subject) => (
-                            <div 
-                                key={subject.id}
-                                className={subject.nama === "Natural science" ? 
-                                    "flex bg-[#44c04e] p-2 mx-3 my-4 rounded-xl"
-                                :
-                                    subject.nama === "Social science" ?
-                                        "flex bg-[#f0974f] p-2 mx-3 my-4 rounded-xl"
+                                <div 
+                                    key={subject.id}
+                                    className={subject.nama === "Natural science" ? 
+                                        "flex md:basis-1/4 bg-[#44c04e] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
                                     :
-                                        "flex bg-[#4f7ff0] p-2 mx-3 my-4 rounded-xl"
-                                }
-                            >
-                                <img 
-                                    src={subject.icon} 
-                                    alt={`${subject.nama}.jpg`}
-                                    className="bg-white rounded-lg h-[70px]"
-                                />
-                                <button className="ms-3 text-white">
-                                    {subject.nama}
-                                </button>
-                            </div>
+                                        subject.nama === "Social science" ?
+                                            "flex md:basis-1/4 bg-[#f0974f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+                                        :
+                                            "flex md:basis-1/4 bg-[#4f7ff0] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+                                    }
+                                >
+                                    <img 
+                                        src={subject.icon} 
+                                        alt={`${subject.nama}.jpg`}
+                                        className="bg-white rounded-lg h-[70px] lg:h-[100px]"
+                                    />
+                                    <button className="ms-3 text-white">
+                                        {subject.nama}
+                                    </button>
+                                </div>
                         ))}
+                        </div>
                     </>
                 ) : (
                     <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
