@@ -34,23 +34,36 @@ const Subjects = (props) => {
 
     const renderSubjects = () => {
         return (
-            <div>
+            <>
                 {subjects.length > 1 ? (
-                    <div>
-                        <h1 className="text-2xl font-bold">Courses</h1>
+                    <>
+                        <header className="bg-[#4f7ff0] rounded-xl mb-5 p-3">
+                            <h1 className="text-2xl text-white mb-1 font-bold">Courses</h1>
+                            <p className="text-white text-sm">Please select course you want to study</p>
+                        </header>
                         {subjects.map((subject) => (
-                            <div key={subject.id}>
+                            <div 
+                                key={subject.id}
+                                className={subject.nama === "Natural science" ? 
+                                    "flex bg-[#44c04e] p-2 mx-3 my-4 rounded-xl"
+                                :
+                                    subject.nama === "Social science" ?
+                                        "flex bg-[#f0974f] p-2 mx-3 my-4 rounded-xl"
+                                    :
+                                        "flex bg-[#4f7ff0] p-2 mx-3 my-4 rounded-xl"
+                                }
+                            >
                                 <img 
                                     src={subject.icon} 
                                     alt={`${subject.nama}.jpg`}
-                                    className="h-[70px]"
+                                    className="bg-white rounded-lg h-[70px]"
                                 />
-                                <button>
+                                <button className="ms-3 text-white">
                                     {subject.nama}
                                 </button>
                             </div>
                         ))}
-                    </div>
+                    </>
                 ) : (
                     <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
                         <div className="self-center bg-[#4773d9] rounded-lg p-5">
@@ -58,7 +71,7 @@ const Subjects = (props) => {
                         </div>
                     </div>
                 )}
-            </div>
+            </>
         )
     };
 
