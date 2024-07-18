@@ -19,8 +19,10 @@ const Home = (props) => {
 
   return (
     <div >
-        <h1 className="text-2xl font-bold text-slate-900">Halo {firstName},</h1>
-        <h1 className="mb-8 text-lg font-medium text-slate-900">Silahkan pilih kelas</h1>
+        <header className="bg-[#4f6af0] p-3 mb-5 rounded-b-xl">
+            <h1 className="text-2xl font-bold text-white">Halo {firstName},</h1>
+            <h1 className=" text-lg font-medium text-white">Silahkan pilih kelas</h1>
+        </header>
         {isLoading? 
             <p className="mt-[35vh] text-center text-slate-900">Loading...</p>
         : 
@@ -33,7 +35,7 @@ const Home = (props) => {
                             className= {kelas.id > 2 ? 
                                 "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
                                 : 
-                                "bg-slate-950 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
+                                "bg-[#4f6af0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
                         >
                             {kelas.nama}
                         </button>
