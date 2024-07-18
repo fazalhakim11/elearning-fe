@@ -24,7 +24,11 @@ const Home = (props) => {
             <h1 className=" text-lg font-medium text-white">Silahkan pilih kelas</h1>
         </header>
         {isLoading? 
-            <p className="mt-[35vh] text-center text-slate-900">Loading...</p>
+            <div className="flex justify-center ">
+                <div className="mt-[25vh] bg-[#4773d9] rounded-lg p-5">
+                    <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Loading...</p>
+                </div>
+            </div>
         : 
             <div className="flex flex-col md:flex-row md:justify-center md:gap-8 md:flex-wrap" >
                 {data.map((kelas) => (

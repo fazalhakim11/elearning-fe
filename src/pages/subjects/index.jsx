@@ -23,6 +23,7 @@ const Subjects = (props) => {
             setIsLoading(false)
             console.log("Subjects", res.data.data)
         }catch (err){
+            setIsLoading(false)
             console.log(err)
         }
     }
@@ -43,7 +44,7 @@ const Subjects = (props) => {
                         </div>
                     ))
                 ) : (
-                    <div className="bg-[#4f7ff0] flex justify-center h-screen">
+                    <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
                         <div className="self-center bg-[#4773d9] rounded-lg p-5">
                             <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Not Found</p>
                         </div>
@@ -56,7 +57,11 @@ const Subjects = (props) => {
   return (
     <>
     {isLoading?
-        <p className="mt-[50vh] text-center text-slate-900">Loading...</p>
+        <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
+            <div className="self-center bg-[#4773d9] rounded-lg p-5">
+            <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Loading...</p>
+            </div>
+        </div>
     :
         <div>
             {renderSubjects()}
