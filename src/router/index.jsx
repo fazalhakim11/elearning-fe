@@ -2,10 +2,13 @@ import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom"
+
 import Login from "../pages/login"
 import Signup from "../pages/signup"
 import Classes from "../pages/home"
 import Subjects from "../pages/subjects"
+import Chapters from "../pages/chapters"
+
 
 const index = () => {
     const router = createBrowserRouter([
@@ -24,6 +27,10 @@ const index = () => {
         {
         path: "/subjects",
         element: <Subjects/>
+        },
+        {
+        path: "/chapters",
+        element: <Chapters/>
         },
       ])
     return (

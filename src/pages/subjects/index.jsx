@@ -1,14 +1,18 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import Loading from "../../components/loading";
 
 const Subjects = (props) => {
     const [subjects, setSubjects] = useState([])
     const [isLoading, setIsLoading] = useState(false)
+
     const location = useLocation()
     const learningModes = location.state?.user
     const token = location.state?.user.userData.token
+
+    const navigate = useNavigate()
     
     console.log("Tes", learningModes)
 
@@ -62,6 +66,7 @@ const Subjects = (props) => {
                                     />
                                     <button 
                                         className="ms-3 text-white"
+                                        onClick={()=>navigate("/chapters")}
                                     >
                                         {subject.nama}
                                     </button>
