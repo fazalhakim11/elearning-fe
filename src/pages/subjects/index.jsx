@@ -36,13 +36,21 @@ const Subjects = (props) => {
         return (
             <div>
                 {subjects.length > 1 ? (
-                    subjects.map((subject) => (
-                        <div key={subject.id}>
-                            <button>
-                                {subject.nama}
-                            </button>
-                        </div>
-                    ))
+                    <div>
+                        <h1 className="text-2xl font-bold">Courses</h1>
+                        {subjects.map((subject) => (
+                            <div key={subject.id}>
+                                <img 
+                                    src={subject.icon} 
+                                    alt={`${subject.nama}.jpg`}
+                                    className="h-[70px]"
+                                />
+                                <button>
+                                    {subject.nama}
+                                </button>
+                            </div>
+                        ))}
+                    </div>
                 ) : (
                     <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
                         <div className="self-center bg-[#4773d9] rounded-lg p-5">

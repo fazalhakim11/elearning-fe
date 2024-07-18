@@ -20,8 +20,8 @@ const Home = (props) => {
   return (
     <div >
         <header className="bg-[#4f6af0] p-3 mb-5 rounded-b-xl">
-            <h1 className="text-2xl font-bold text-white">Halo {firstName},</h1>
-            <h1 className=" text-lg font-medium text-white">Silahkan pilih kelas</h1>
+            <h1 className="text-2xl font-bold text-white">Wellcome, {firstName}!</h1>
+            <h1 className=" text-lg font-medium text-white">Please select a grade</h1>
         </header>
         {isLoading? 
             <div className="flex justify-center ">

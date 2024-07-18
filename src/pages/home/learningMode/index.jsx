@@ -28,7 +28,7 @@ const LearningMode = (props) => {
     }, [])
     
     const navigate = useNavigate()
-    const handleClick = (id) => {
+    const handleClick =(id) => {
         navigate("/subjects", { state: { user: {id, userData} } })
     }
   return (
