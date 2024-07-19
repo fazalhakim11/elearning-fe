@@ -32,8 +32,8 @@ const Chapters = (props) => {
       {chapters.map((chapter)=>
         <div key={chapter.id}>
           <p>{chapter.nama}</p>
-          <p>Progress {chapter.finalProgress}</p>
-          <p>Sub bab gratis {chapter.sub_bab_gratis}</p>
+          <p>Progress {(chapter.finalProgress*100).toFixed(2)}%</p>
+          <p>{chapter.sub_bab_gratis} Sub Chapter{chapter.sub_bab_gratis >1? "s" : ""} free</p>
         </div>
       )}
     </>
