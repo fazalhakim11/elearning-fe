@@ -8,13 +8,13 @@ const Subjects = (props) => {
     const [subjects, setSubjects] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
+    // console.log("Subjects", subjects)
+
     const location = useLocation()
     const learningModes = location.state?.user
     const token = location.state?.user.userData.token
 
     const navigate = useNavigate()
-    
-    console.log("Tes", learningModes)
 
     const getSubjects = async () => {
         try{
@@ -26,7 +26,6 @@ const Subjects = (props) => {
             })
             setSubjects(res.data.data)
             setIsLoading(false)
-            console.log("Subjects", res.data.data)
         }catch (err){
             setIsLoading(false)
             console.log(err)
@@ -47,6 +46,10 @@ const Subjects = (props) => {
         }
     }
 
+    const handleClick = (id) => {
+        navigate("/chapters", {state: {data: {id, token}}})
+    }
+
     const renderSubjects = () => {
         return (
             <>
@@ -65,11 +68,11 @@ const Subjects = (props) => {
                                     <img 
                                         src={subject.icon} 
                                         alt={`${subject.nama}.jpg`}
-                                        className="bg-white rounded-lg h-[70px] lg:h-[100px]"
+                                        className="rounded-lg h-[70px] lg:h-[100px]"
                                     />
                                     <button 
                                         className="ms-3 text-white"
-                                        onClick={()=>navigate("/chapters")}
+                                        onClick={()=>handleClick(subject.id)}
                                     >
                                         {subject.nama}
                                     </button>
