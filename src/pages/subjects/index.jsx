@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 import Loading from "../../components/loading";
+import Header from "../../components/header"
 
 const Subjects = (props) => {
     const [subjects, setSubjects] = useState([])
@@ -55,10 +56,7 @@ const Subjects = (props) => {
             <>
                 {subjects.length > 1 ? (
                     <>
-                        <header className="bg-[#4f7ff0] rounded-xl mb-5 p-3">
-                            <h1 className="text-2xl text-white mb-1 font-bold">Courses</h1>
-                            <p className="text-white text-sm">Please select course you want to study</p>
-                        </header>
+                        <Header name="Courses"/>
                         <div className="mdd:flex mdd:justify-between md:justify-start md:gap-3 lg:gap-6 mdd:m-8 flex-wrap">
                         {subjects.map((subject) => (
                                 <div 

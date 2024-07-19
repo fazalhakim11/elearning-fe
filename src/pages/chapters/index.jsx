@@ -2,6 +2,8 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useLocation,  } from "react-router-dom";
 
+import Header from "../../components/header"
+
 const Chapters = (props) => {
   const [chapters, setChapters] = useState([])
 
@@ -29,6 +31,7 @@ const Chapters = (props) => {
 
   return (
     <>
+      <Header name="Chapters"/>
       {chapters.map((chapter)=>
         <div key={chapter.id}>
           <p>{chapter.nama}</p>
