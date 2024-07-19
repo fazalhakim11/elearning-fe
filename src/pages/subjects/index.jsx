@@ -37,6 +37,16 @@ const Subjects = (props) => {
         getSubjects()
     }, [])
 
+    const setCourseBg = (subject) => {
+        if (subject === "Natural science") {
+            return "flex md:basis-1/4 bg-[#44c04e] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+        } else if (subject === "Social science") {
+            return "flex md:basis-1/4 bg-[#f0974f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+        } else {
+            return "flex md:basis-1/4 bg-[#4f7ff0] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+        }
+    }
+
     const renderSubjects = () => {
         return (
             <>
@@ -50,14 +60,7 @@ const Subjects = (props) => {
                         {subjects.map((subject) => (
                                 <div 
                                     key={subject.id}
-                                    className={subject.nama === "Natural science" ? 
-                                        "flex md:basis-1/4 bg-[#44c04e] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
-                                    :
-                                        subject.nama === "Social science" ?
-                                            "flex md:basis-1/4 bg-[#f0974f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
-                                        :
-                                            "flex md:basis-1/4 bg-[#4f7ff0] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
-                                    }
+                                    className={setCourseBg(subject.nama)}
                                 >
                                     <img 
                                         src={subject.icon} 
@@ -90,9 +93,7 @@ const Subjects = (props) => {
     {isLoading?
         <Loading/>
     :
-        <div>
-            {renderSubjects()}
-        </div>
+        renderSubjects()        
     }
     </>
   )
