@@ -19,6 +19,42 @@ const Home = (props) => {
         setKelasId(kelasId)
     }
 
+    const renderClasses = () => {
+        return (
+            <>
+            {data.length > 1 ?
+                <div className="flex flex-col md:flex-row md:justify-center md:gap-8 md:flex-wrap" >
+                    {data.map((kelas) => (
+                        <div className="flex flex-col mb-3 md:mb-0 md:basis-1/4" key={kelas.id}>
+                            <button
+                                onClick={()=>handleBtn(kelas.id)}
+                                disabled={kelas.id > 2} 
+                                className= {kelas.id > 2 ? 
+                                    "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
+                                    : 
+                                    "bg-[#4f6af0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
+                            >
+                                {kelas.nama}
+                            </button>
+                            {isToggle && kelasId === kelas.id ?
+                                <LearningMode kelas={kelas.id}/>  
+                            :
+                                ""
+                            }
+                        </div>  
+                    ))}
+                </div>
+            : (
+                <div className=" flex justify-center h-screen">
+                    <div className="mt-[25vh] h-max bg-[#4773d9] rounded-lg p-5">
+                        <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Not Found</p>
+                    </div>
+                </div>
+            )}
+            </>
+        )
+    }
+
   return (
     <div >
         <header className="bg-[#4f6af0] p-3 mb-5 rounded-b-xl">
@@ -28,28 +64,7 @@ const Home = (props) => {
         {isLoading? 
             <Loading home/>
         : 
-            <div className="flex flex-col md:flex-row md:justify-center md:gap-8 md:flex-wrap" >
-                {data.map((kelas) => (
-                    <div className="flex flex-col mb-3 md:mb-0 md:basis-1/4" key={kelas.id}>
-                        <button
-                            onClick={()=>handleBtn(kelas.id)}
-                            disabled={kelas.id > 2} 
-                            className= {kelas.id > 2 ? 
-                                "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
-                                : 
-                                "bg-[#4f6af0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
-                        >
-                            {kelas.nama}
-                        </button>
-                        {isToggle && kelasId === kelas.id ?
-                        <LearningMode kelas={kelas.id}/>  
-                        :
-                        ""
-                        }
-                    </div>  
-                ))}
-            </div>
-
+            renderClasses()
         }
     </div>
   )

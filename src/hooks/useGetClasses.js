@@ -20,6 +20,7 @@ export const useGetClasses =()=>{
             setIsLoading(false)
             setData(res.data.data)
         } catch (err){
+            setIsLoading(false)
             console.log(err)
         }
     } 
