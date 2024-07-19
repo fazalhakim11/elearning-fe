@@ -3,7 +3,8 @@ import { useEffect, useState } from "react"
 import { useLocation,  } from "react-router-dom";
 
 import Header from "../../components/header"
-import Loading from "../../components/loading";
+import Loading from "../../components/loading"
+import NotFound from "../../components/notFound"
 
 const Chapters = (props) => {
   const [chapters, setChapters] = useState([])
@@ -39,13 +40,19 @@ const Chapters = (props) => {
     return (
       <>
       <Header name="Chapters"/>
-      {chapters.map((chapter)=>
-        <div key={chapter.id}>
-          <p>{chapter.nama}</p>
-          <p>Progress {(chapter.finalProgress*100).toFixed(2)}%</p>
-          <p>{chapter.sub_bab_gratis} Sub Chapter{chapter.sub_bab_gratis >1? "s" : ""} free</p>
-        </div>
-      )}
+      {chapters.length > 1 ? 
+        <>
+          {chapters.map((chapter)=>
+            <div key={chapter.id}>
+              <p>{chapter.nama}</p>
+              <p>Progress {(chapter.finalProgress*100).toFixed(2)}%</p>
+              <p>{chapter.sub_bab_gratis} Sub Chapter{chapter.sub_bab_gratis >1? "s" : ""} free</p>
+            </div>
+          )}
+        </>
+      :
+        <NotFound name="Chapter"/>
+      }
     </>
     )
   }

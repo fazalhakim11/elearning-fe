@@ -2,8 +2,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import Loading from "../../components/loading";
+import Loading from "../../components/loading"
 import Header from "../../components/header"
+import NotFound from "../../components/notFound"
 
 const Subjects = (props) => {
     const [subjects, setSubjects] = useState([])
@@ -54,9 +55,8 @@ const Subjects = (props) => {
     const renderSubjects = () => {
         return (
             <>
+                <Header name="Courses"/>
                 {subjects.length > 1 ? (
-                    <>
-                        <Header name="Courses"/>
                         <div className="mdd:flex mdd:justify-between md:justify-start md:gap-3 lg:gap-6 mdd:m-8 flex-wrap">
                         {subjects.map((subject) => (
                                 <div 
@@ -77,13 +77,8 @@ const Subjects = (props) => {
                                 </div>
                         ))}
                         </div>
-                    </>
                 ) : (
-                    <div className="bg-[#4f7ff0] md:bg-transparent flex justify-center h-screen">
-                        <div className="self-center bg-[#4773d9] rounded-lg p-5">
-                            <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Not Found</p>
-                        </div>
-                    </div>
+                    <NotFound name="Course"/>
                 )}
             </>
         )
