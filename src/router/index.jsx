@@ -8,6 +8,7 @@ import Signup from "../pages/signup"
 import Classes from "../pages/home"
 import Subjects from "../pages/subjects"
 import Chapters from "../pages/chapters"
+import SubChapters from "../pages/subChapters"
 
 
 const index = () => {
@@ -31,6 +32,10 @@ const index = () => {
         {
         path: "/chapters",
         element: <Chapters/>
+        },
+        {
+        path: "/sub_chapters",
+        element: <SubChapters/>
         },
       ])
     return (

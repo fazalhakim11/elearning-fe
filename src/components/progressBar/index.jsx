@@ -8,7 +8,7 @@ const index = (props) => {
         >
         </div>
         <p 
-            className={`${props.progress > 57 ? "text-[#ededed]" : ""}
+            className={`${props.progress > 55 ? "text-[#ededed]" : ""}
                 text-xs text-center absolute inset-x-0 bottom-0 top-[1px]`}
         >
             {props.progress}%

@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect } from "react"
-import { useLocation,  } from "react-router-dom";
+import { useLocation  } from "react-router-dom";
 
 import useDataStores from "../../stores/dataStores"
 
@@ -42,7 +42,7 @@ const Chapters = (props) => {
       {isLoading?
         <Loading/>
       : 
-        <ChapterCards />
+        <ChapterCards token={subjects.token} chapters/>
       }
     </>
   )

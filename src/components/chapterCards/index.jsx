@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 
 import useDataStores from "../../stores/dataStores"
 
@@ -6,39 +7,66 @@ import NotFound from "../notFound"
 import ProgressBar from "../progressBar"
 
 const index = (props) => {
-  const chapters = useDataStores(state => state.chapters)
+  
+  const subOrChapters = () => {
+    if (props.subChapters) {
+      return subChapters
+    } else {
+      return chapters
+    }
+  }
+
+  const {chapters, subChapters } = useDataStores()
+  const navigate = useNavigate()
+
+  const token = props.token
+
+  const handleClick = (id) => {
+    navigate("/sub_chapters",{state: {data: {id, token}}})
+  }
 
   return (
     <>
-      <Header name="Chapters"/>
-      {chapters.length > 1 ? 
+      <Header name={`${props.subChapters ? "Sub Chapters" : "Chapters" }`}/>
+      {subOrChapters().length > 1 ? 
         <div className="flex justify-between flex-wrap gap-4 m-3">
-          {chapters.map((chapter)=>
+          {subOrChapters().map((chapter)=>
             <div 
                 key={chapter.id}
                 className="bg-[#ededed] drop-shadow-lg basis-[47%] mdd:basis-[30%] rounded-lg p-2"
             >
                 <p
-                    className="bg-[#e89434] text-xs text-[#ededed] rounded-md w-max px-1"
+                  className="bg-[#e89434] text-xs text-[#ededed] rounded-md w-max px-1"
                 >
-                    {chapter.sub_bab_gratis} Sub Chapter{chapter.sub_bab_gratis >1? "s" : ""} free
+                  {props.subChapters && chapter.label ? 
+                    "Free"
+                  : props.chapters ? 
+                      `${chapter.sub_bab_gratis} Sub Chapter${chapter.sub_bab_gratis >1? "s" : ""} free`
+                    :
+                      ""
+                  }
                 </p>
-                <div className="md:flex">
+                <div className={props.subChapters && !chapter.label ? "flex flex-col md:flex-row mt-[16px]" : "flex flex-col md:flex-row"}>
                   <img 
                     src={chapter.icon} 
                     alt={`${chapter.nama}.jpg`}
-                    className="w-[123px] mb-3" 
+                    className="w-[123px] mb-3 self-center md:mr-3" 
                   />
-                  <div className="w-full self-center"> 
-                    <p className="font-bold text-md text-[#38425a] mb-2">{chapter.nama}</p>
-                    <ProgressBar progress={parseFloat((chapter.finalProgress * 100 || 0).toFixed(2))}/>
+                  <div className="w-full msm:max-w-[123px] self-center"> 
+                    <p 
+                      className="font-bold text-sm mdd:text-md text-[#38425a] mb-2 truncate"
+                      onClick={()=>handleClick(chapter.id)}
+                    >
+                      {chapter.nama}
+                    </p>
+                    <ProgressBar progress={parseFloat((chapter.finalProgress*100 || chapter.progress*100 || 0).toFixed(0))}/>
                   </div>
                 </div>
             </div>
           )}
         </div>
       :
-        <NotFound name="Chapter"/>
+        <NotFound name={props.chapters ? "Chapter" : "Sub Chapter"}/>
       }
     </>
   )
