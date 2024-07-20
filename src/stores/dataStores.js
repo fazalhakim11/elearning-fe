@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const useDataStores = create(set => ({
     chapters: [],
-    setChapters: (data)=> set({chapters: data}),
+    setChapters: (res)=> set({chapters: res}),
     isLoading: false,
     setIsLoading: (res)=> set({isLoading: res})
 }))

@@ -1,5 +1,6 @@
 
 const Loading = (props) => {
+  
   return (
     <div className={props.home ? 
         "flex justify-center h-screen"

@@ -2,13 +2,15 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+import useDataStores from "../../stores/dataStores";
+
 import Loading from "../../components/loading"
 import Header from "../../components/header"
 import NotFound from "../../components/notFound"
 
 const Subjects = (props) => {
+    const {isLoading, setIsLoading} = useDataStores()
     const [subjects, setSubjects] = useState([])
-    const [isLoading, setIsLoading] = useState(false)
 
     // console.log("Subjects", subjects)
 

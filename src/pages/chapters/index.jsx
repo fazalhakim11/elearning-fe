@@ -1,5 +1,5 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { useLocation,  } from "react-router-dom";
 
 import useDataStores from "../../stores/dataStores"
@@ -26,6 +26,7 @@ const Chapters = (props) => {
       setChapters(res.data.bab)
       setIsLoading(false)
     }catch (err) {
+      setChapters([])
       setIsLoading(false)
       console.log(err)
 
@@ -41,7 +42,7 @@ const Chapters = (props) => {
       {isLoading?
         <Loading/>
       : 
-        <ChapterCards/>
+        <ChapterCards />
       }
     </>
   )
