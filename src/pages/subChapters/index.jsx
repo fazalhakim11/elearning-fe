@@ -7,7 +7,7 @@ import useDataStores from "../../stores/dataStores";
 import Loading from "../../components/loading"
 import ChapterCards from "../../components/chapterCards"
 
-const index = (props) => {
+const SubChapters = (props) => {
     const { subChapters, setSubChapters, isLoading, setIsLoading} = useDataStores()
 
     const location = useLocation()
@@ -47,4 +47,4 @@ const index = (props) => {
   )
 };
 
-export default index
+export default SubChapters

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 
-export const useGetClasses =()=>{
+export const useGetData =()=>{
     const location = useLocation()
     const user = location.state?.user.data
 

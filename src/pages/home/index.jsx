@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { useGetClasses } from "../../hooks/useGetClasses";
+import { useGetData } from "../../hooks/useGetData";
 import LearningMode from "./learningMode"
 import Loading from "../../components/loading";
 
 const Home = (props) => {
-    const [isLoading, data, getClasses, user] = useGetClasses()
+    const [isLoading, data, getClasses, user] = useGetData()
     const firstName = user.nama.split(" ")[0]
     
     useEffect (()=>{

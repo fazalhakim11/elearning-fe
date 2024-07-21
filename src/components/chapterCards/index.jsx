@@ -16,6 +16,14 @@ const index = (props) => {
     }
   }
 
+  const subOrChaptersLabel = (chapter) => {
+    if (props.chapters) {
+      return `${chapter.sub_bab_gratis} Sub Chapter${chapter.sub_bab_gratis >1? "s" : ""} free` 
+    } else {
+      return ""
+    }
+  }
+
   const {chapters, subChapters } = useDataStores()
   const navigate = useNavigate()
 
@@ -40,10 +48,8 @@ const index = (props) => {
                 >
                   {props.subChapters && chapter.label ? 
                     "Free"
-                  : props.chapters ? 
-                      `${chapter.sub_bab_gratis} Sub Chapter${chapter.sub_bab_gratis >1? "s" : ""} free`
-                    :
-                      ""
+                  : 
+                    subOrChaptersLabel(chapter)
                   }
                 </p>
                 <div className={props.subChapters && !chapter.label ? "flex flex-col md:flex-row mt-[16px]" : "flex flex-col md:flex-row"}>
@@ -53,12 +59,12 @@ const index = (props) => {
                     className="w-[123px] mb-3 self-center md:mr-3" 
                   />
                   <div className="w-full msm:max-w-[123px] self-center"> 
-                    <p 
-                      className="font-bold text-sm mdd:text-md text-[#38425a] mb-2 truncate"
+                    <button 
+                      className="w-full font-bold text-sm mdd:text-md text-[#38425a] mb-2"
                       onClick={()=>handleClick(chapter.id)}
                     >
-                      {chapter.nama}
-                    </p>
+                      <p className="truncate">{chapter.nama}</p>
+                    </button>
                     <ProgressBar progress={parseFloat((chapter.finalProgress*100 || chapter.progress*100 || 0).toFixed(0))}/>
                   </div>
                 </div>
