@@ -63,7 +63,7 @@ const index = (props) => {
                       className="w-full font-bold text-sm mdd:text-md text-[#38425a] mb-2"
                       onClick={()=>handleClick(chapter.id)}
                     >
-                      <p className="truncate">{chapter.nama}</p>
+                      <p className="truncate text-left mdd:text-center md:text-left">{chapter.nama}</p>
                     </button>
                     <ProgressBar progress={parseFloat((chapter.finalProgress*100 || chapter.progress*100 || 0).toFixed(0))}/>
                   </div>
