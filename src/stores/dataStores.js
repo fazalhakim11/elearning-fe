@@ -5,6 +5,8 @@ const useDataStores = create(set => ({
     setChapters: (res)=> set({chapters: res}),
     subChapters: [],
     setSubChapters: (res)=> set({subChapters: res}),
+    materials: [],
+    setMaterials: (res) => set({materials: res}),
     isLoading: false,
     setIsLoading: (res)=> set({isLoading: res})
 }))

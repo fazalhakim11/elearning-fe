@@ -9,6 +9,7 @@ import Classes from "../pages/home"
 import Subjects from "../pages/subjects"
 import Chapters from "../pages/chapters"
 import SubChapters from "../pages/subChapters"
+import Materials from "../pages/materials"
 
 
 const index = () => {
@@ -36,6 +37,10 @@ const index = () => {
         {
         path: "/sub_chapters",
         element: <SubChapters/>
+        },
+        {
+        path: "/materials",
+        element: <Materials/>
         },
       ])
     return (

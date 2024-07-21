@@ -1,20 +1,17 @@
 import axios from "axios"
 import { useEffect } from "react"
-import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom"
 
-import useDataStores from "../../stores/dataStores";
+import useDataStores from "../../stores/dataStores"
 
 import Loading from "../../components/loading"
 import ChapterCards from "../../components/chapterCards"
 
 const SubChapters = (props) => {
-    const { subChapters, setSubChapters, isLoading, setIsLoading} = useDataStores()
+    const { subChapters, setSubChapters, isLoading, setIsLoading } = useDataStores()
 
     const location = useLocation()
     const chapters = location.state?.data
-
-    console.log(chapters)
-    console.log(subChapters)
 
     const getSubChapters = async () => {
         try {
@@ -36,13 +33,14 @@ const SubChapters = (props) => {
       useEffect(()=>{
         getSubChapters()
       }, [])
+
   return (
     <>
-        {isLoading?
-            <Loading/>
-        : 
-            <ChapterCards token={chapters.token} subChapters/>
-        }
+      {isLoading?
+        <Loading/>
+      : 
+        <ChapterCards token={chapters.token} subChapters/>
+      }
     </>
   )
 };
