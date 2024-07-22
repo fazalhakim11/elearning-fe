@@ -7,6 +7,7 @@ import useDataStores from "../../stores/dataStores"
 import Loading from "../../components/loading"
 import Header from "../../components/header"
 import NotFound from "../../components/notFound"
+import YouTubeEmbed from "../../components/youTubeEmbed"
 
 const Materials = (props) => {
     const { materials, setMaterials, isLoading, setIsLoading } = useDataStores()
@@ -84,7 +85,8 @@ const Materials = (props) => {
                         key={material.id}
                         className="bg-[#dadada] mb-3 mdd:mb-0 rounded-lg basis-[48%] md:basis-[45%]"
                         >   
-                            {materialTypeVideo(material)}
+                            {/* {materialTypeVideo(material)} */}
+                            <YouTubeEmbed material={material}/>
                             <div className="p-2 flex">
                                 {materialTypeNotVideo(material)}
                                 <div>
