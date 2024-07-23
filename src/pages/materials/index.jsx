@@ -38,21 +38,6 @@ const Materials = (props) => {
         getMaterials()
     },[])
 
-    const materialTypeVideo = (material) => {
-        if (material.tipe === "Video" ){
-            return (
-                <iframe 
-                    height='280'
-                    src={`${material.thumbnail}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    title="Embedded YouTube Video"
-                    className="rounded-lg w-[100%]"
-                ></iframe>
-            )
-        } 
-    }
-
     const materialTypeNotVideo = (material) => {
         if(material.tipe === "Single Quiz" || material.tipe === "Summary") {
             return (
@@ -80,13 +65,13 @@ const Materials = (props) => {
             <Header name="Materials"/>
             {materials.length > 1 ?
                 <div className="mx-3 mdd:mx-0 mdd:flex mdd:flex-wrap justify-around gap-y-5">
-                    {materials.map(material =>  
+                    {materials.map(material => {
+                        return (
                         <div 
                         key={material.id}
                         className="bg-[#dadada] mb-3 mdd:mb-0 rounded-lg basis-[48%] md:basis-[45%]"
                         >   
-                            {/* {materialTypeVideo(material)} */}
-                            <YouTubeEmbed material={material}/>
+                            <YouTubeEmbed material={material.tipe} videoURL={material.thumbnail}/>
                             <div className="p-2 flex">
                                 {materialTypeNotVideo(material)}
                                 <div>
@@ -120,6 +105,8 @@ const Materials = (props) => {
                                 </div>
                             </div>
                         </div>
+                        )
+                    }  
                     )}
                 </div>
             :
