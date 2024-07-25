@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import useDataStores from "../stores/dataStores";
 
 export const useLogin = () => {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null)
@@ -30,7 +31,29 @@ export const useLogin = () => {
             console.error('Login failed:', err.response ? err.response.data : err); 
         }
     }
-    return [email, setEmail, password, setPassword, error, setError, handleLogin]
+    const handleSignup = async (event) => {
+        event.preventDefault();
+
+        try {
+            setIsLoading(true)
+            const response = await axios.post('http://localhost:9000/api/auth/register', {
+                name,
+                email,
+                password,
+            });
+            setIsLoading(false)
+            console.log(response)
+            // Handle successful signup, 
+            alert("User successfully registered, please login")
+            navigate("/", )
+        } catch (err) {
+            // Handle error
+            setIsLoading(false)
+            setError(err.response ? err.response.data.message : 'Login failed');
+            console.error('Login failed:', err.response ? err.response.data : err); 
+        }
+    }
+    return [name, setName, email, setEmail, password, setPassword, error, setError, handleLogin, handleSignup]
 };
 
  

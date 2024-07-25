@@ -5,7 +5,7 @@ const YouTubeEmbed = (props)=>{
   const userId = props.userId
 
   const onPlayerReady = () => {
-    console.log("Ready")
+    console.log("Player is ready")
   }
 
   const onPlayerStateChange = async (event) => {
@@ -15,7 +15,7 @@ const YouTubeEmbed = (props)=>{
           userId: userId,          
           materialId: parseInt(props.id, 10)
         })
-        console.log("Success")
+        console.log("Updating progress success..")
       } catch (err) {
         console.log(err)
       }
@@ -34,8 +34,6 @@ const YouTubeEmbed = (props)=>{
         onStateChange: onPlayerStateChange
       }
     })
-
-    console.log(player)
   }
   
   onYouTubeIframeAPIReady()

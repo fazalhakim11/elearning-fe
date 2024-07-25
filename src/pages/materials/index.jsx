@@ -24,7 +24,6 @@ const Materials = (props) => {
                     'Authorization' : `Bearer ${subChapters.token}`
                 }
             })
-            console.log(res.data.data)
             setMaterials(res.data.data)
             setIsLoading(false)
         } catch (err) {
