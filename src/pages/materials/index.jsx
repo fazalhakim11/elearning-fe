@@ -65,13 +65,14 @@ const Materials = (props) => {
             <Header name="Materials"/>
             {materials.length > 1 ?
                 <div className="mx-3 mdd:mx-0 mdd:flex mdd:flex-wrap justify-around gap-y-5">
-                    {materials.map(material => {
+                    {materials.map((material)=> {
                         return (
                         <div 
-                        key={material.id}
-                        className="bg-[#dadada] mb-3 mdd:mb-0 rounded-lg basis-[48%] md:basis-[45%]"
-                        >   
-                            <YouTubeEmbed material={material.tipe} videoURL={material.thumbnail}/>
+                            key={material.id}
+                            className="bg-[#dadada] mb-3 mdd:mb-0 rounded-lg basis-[48%] md:basis-[45%]"
+                        >   {material.tipe === "Video" ? 
+                            <YouTubeEmbed id={material.id.toString()} videoId={material.thumbnail} />
+                            :""}   
                             <div className="p-2 flex">
                                 {materialTypeNotVideo(material)}
                                 <div>
