@@ -12,6 +12,7 @@ const SubChapters = (props) => {
 
     const location = useLocation()
     const chapters = location.state?.data
+    const userId = chapters.userId
 
     const getSubChapters = async () => {
         try {
@@ -39,7 +40,7 @@ const SubChapters = (props) => {
       {isLoading?
         <Loading/>
       : 
-        <ChapterCards token={chapters.token} subChapters/>
+        <ChapterCards userId={userId} token={chapters.token} subChapters/>
       }
     </>
   )

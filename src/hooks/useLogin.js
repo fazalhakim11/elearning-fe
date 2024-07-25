@@ -7,7 +7,7 @@ export const useLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null)
-    const { setIsLoading} = useDataStores()
+    const { setIsLoading, setUserId } = useDataStores()
     const navigate = useNavigate()
 
     const handleLogin = async (event) => {
@@ -19,6 +19,7 @@ export const useLogin = () => {
                 email,
                 password,
             });
+            setUserId(response.data.data.id )
             setIsLoading(false)
             // Handle successful login, e.g., store token, redirect user
             navigate("/classes", { state: { user: response.data } })

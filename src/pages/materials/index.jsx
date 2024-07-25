@@ -14,7 +14,7 @@ const Materials = (props) => {
 
     const location = useLocation()
     const subChapters = location.state?.data
-    console.log(subChapters)
+    const userId = subChapters.userId
 
     const getMaterials = async () => {
         try {
@@ -71,7 +71,7 @@ const Materials = (props) => {
                             key={material.id}
                             className="bg-[#dadada] mb-3 mdd:mb-0 rounded-lg basis-[48%] md:basis-[45%]"
                         >   {material.tipe === "Video" ? 
-                            <YouTubeEmbed id={material.id.toString()} videoId={material.thumbnail} />
+                            <YouTubeEmbed userId={userId} id={material.id.toString()} videoId={material.thumbnail} token={subChapters.token}/>
                             :""}   
                             <div className="p-2 flex">
                                 {materialTypeNotVideo(material)}

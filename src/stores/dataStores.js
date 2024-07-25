@@ -8,7 +8,9 @@ const useDataStores = create(set => ({
     materials: [],
     setMaterials: (res) => set({materials: res}),
     isLoading: false,
-    setIsLoading: (res)=> set({isLoading: res})
+    setIsLoading: (res)=> set({isLoading: res}),
+    userId: 0,
+    setUserId: (res)=> set({userId: res})
 }))
 
 export default useDataStores

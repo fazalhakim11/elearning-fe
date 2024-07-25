@@ -28,12 +28,13 @@ const index = (props) => {
   const navigate = useNavigate()
 
   const token = props.token
+  const userId = props.userId
 
   const handleClick = (id) => {
     if (props.chapters) {
-      navigate("/sub_chapters",{state: {data: {id, token}}})
+      navigate("/sub_chapters",{state: {data: {userId, id, token}}})
     } else if (props.subChapters) {
-      navigate("/materials",{state: {data: {id, token}}})
+      navigate("/materials",{state: {data: {userId, id, token}}})
     }
   }
 

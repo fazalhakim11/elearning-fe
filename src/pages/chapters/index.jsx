@@ -12,8 +12,7 @@ const Chapters = (props) => {
   
   const location = useLocation()
   const subjects = location.state?.data
-  
-  // console.log("Chapters", chapters)
+  const userId = subjects.userId
 
   const getChapters = async () => {
     try {
@@ -42,7 +41,7 @@ const Chapters = (props) => {
       {isLoading?
         <Loading/>
       : 
-        <ChapterCards token={subjects.token} chapters/>
+        <ChapterCards userId={userId} token={subjects.token} chapters/>
       }
     </>
   )

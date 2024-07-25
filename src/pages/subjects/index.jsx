@@ -17,6 +17,7 @@ const Subjects = (props) => {
     const location = useLocation()
     const learningModes = location.state?.user
     const token = location.state?.user.userData.token
+    const userId = location.state?.user.userData.id
 
     const navigate = useNavigate()
 
@@ -51,7 +52,7 @@ const Subjects = (props) => {
     }
 
     const handleClick = (id) => {
-        navigate("/chapters", {state: {data: {id, token}}})
+        navigate("/chapters", {state: {data: { userId, id, token}}})
     }
 
     const renderSubjects = () => {
