@@ -16,7 +16,7 @@ export const useLogin = () => {
 
         try {
             setIsLoading(true)
-            const response = await axios.post('http://localhost:9000/api/auth/login', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
                 email,
                 password,
             });
@@ -36,7 +36,7 @@ export const useLogin = () => {
 
         try {
             setIsLoading(true)
-            const response = await axios.post('http://localhost:9000/api/auth/register', {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, {
                 name,
                 email,
                 password,

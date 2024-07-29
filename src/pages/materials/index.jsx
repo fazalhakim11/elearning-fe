@@ -19,7 +19,7 @@ const Materials = (props) => {
     const getMaterials = async () => {
         try {
             setIsLoading(true)
-            const res = await axios.get(`http://localhost:9000/api/material/${subChapters.id}`,{
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/material/${subChapters.id}`,{
                 headers: {
                     'Authorization' : `Bearer ${subChapters.token}`
                 }

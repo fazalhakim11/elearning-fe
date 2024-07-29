@@ -12,7 +12,7 @@ export const useGetData =()=>{
     const getClasses = async ()=>{
         try{
             setIsLoading(true)
-            const res = await axios.get("http://localhost:9000/api/kelas/",{
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/kelas/`,{
                 headers: {
                     'Authorization' : `Bearer ${user.token}` // Using Bearer token authentication
                 }

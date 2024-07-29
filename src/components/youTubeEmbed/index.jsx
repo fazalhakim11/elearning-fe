@@ -11,7 +11,7 @@ const YouTubeEmbed = (props)=>{
   const onPlayerStateChange = async (event) => {
     if ( event.data === YT.PlayerState.ENDED){
       try {
-        await axios.post("http://localhost:9000/api/progress", {
+        await axios.post(`${import.meta.env.VITE_API_URL}/api/progress`, {
           userId: userId,          
           materialId: parseInt(props.id, 10)
         })

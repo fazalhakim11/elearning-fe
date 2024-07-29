@@ -12,7 +12,7 @@ const LearningMode = (props) => {
     
     const getLearingMode = async () => {
         try{
-            const res = await axios.get(`http://localhost:9000/api/mode_pembelajaran/${kelas}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mode_pembelajaran/${kelas}`, {
                 headers: {
                     'Authorization' : `Bearer ${userData.token}` // Using Bearer token authentication
                 }

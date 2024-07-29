@@ -24,7 +24,7 @@ const Subjects = (props) => {
     const getSubjects = async () => {
         try{
             setIsLoading(true)
-            const res = await axios.get(`http://localhost:9000/api/mata_pelajaran/${learningModes.id}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes.id}`, {
                 headers: {
                     'Authorization' : `Bearer ${token}` // Using Bearer token authentication
                 }

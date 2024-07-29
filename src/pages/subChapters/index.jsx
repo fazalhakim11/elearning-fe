@@ -17,7 +17,7 @@ const SubChapters = (props) => {
     const getSubChapters = async () => {
         try {
           setIsLoading(true)
-          const res = await axios.get(`http://localhost:9000/api/sub_bab/${chapters.id}`,{
+          const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/sub_bab/${chapters.id}`,{
             headers: {
               'Authorization' : `Bearer ${chapters.token}`
             }
