@@ -39,7 +39,7 @@ const YouTubeEmbed = (props)=>{
   onYouTubeIframeAPIReady()
 
   return (
-    <div id={props.id} >Tes</div>
+    <div id={props.id} ><i>Youtube Video</i></div>
   )
 };
 
