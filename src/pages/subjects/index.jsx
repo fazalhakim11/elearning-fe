@@ -15,16 +15,17 @@ const Subjects = (props) => {
     // console.log("Subjects", subjects)
 
     const location = useLocation()
-    const learningModes = location.state?.user
-    const token = location.state?.user.userData.token
-    const userId = location.state?.user.userData.id
+    const data = location.state?.user
+    const learningModes = data.id
+    const token = data.userData.token
+    const userId = data.userData.id
 
     const navigate = useNavigate()
 
     const getSubjects = async () => {
         try{
             setIsLoading(true)
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes.id}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes}`, {
                 headers: {
                     'Authorization' : `Bearer ${token}` // Using Bearer token authentication
                 }
