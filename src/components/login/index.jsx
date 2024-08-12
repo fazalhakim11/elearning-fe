@@ -118,7 +118,7 @@ const index = (props) => {
             }
             <button type="submit" className="rounded-xl mb-4 mt-4 bg-[#3D5CFF] text-white py-3">Sign Up</button>
           </form>
-            <p className="text-[#858897] self-center">Already have an account? <button onClick={()=>{navigate("/")}} className="text-[#3D5CFF]">Log In</button></p>
+            <p className="text-[#858897] self-center">Already have an account? <button onClick={()=>{navigate("/login")}} className="text-[#3D5CFF]">Log In</button></p>
         </div>
       )
     }
