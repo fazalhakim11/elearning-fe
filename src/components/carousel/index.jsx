@@ -1,14 +1,11 @@
-import { useState, useEffect } from "react";
-
+import { useEffect } from "react";
+import useDataStore from "../../stores/dataStores"
+ 
 const Carousel = (props) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const {currentIndex, setCurrentIndex} = useDataStore()
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % props.contents.length);
-  };
-
-  const goToSlide = (index) => {
-    setCurrentIndex(index);
+    setCurrentIndex(props.contents.length);
   };
 
   useEffect(() => {

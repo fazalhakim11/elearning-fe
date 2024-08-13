@@ -4,7 +4,11 @@ import image3 from "../../assets/image/Elearning-Image3.png";
 
 import Carousel from "../../components/carousel";
 
+import useDataStores from "../../stores/dataStores";
+
 const Main = () => {
+  const { currentIndex, setIndex } = useDataStores();
+
   const contents = [
     {
       image: image1,
@@ -26,11 +30,27 @@ const Main = () => {
     },
   ];
 
+  const goToSlide = (index) => {
+    setIndex(index);
+  };
+
   return (
     <div className="flex flex-col px-8 my-[50px] text-[#32449b]">
-      <Carousel contents={contents}/>
+      <Carousel contents={contents} />
       <div className="flex justify-between ">
-        <div>...</div>
+        <div className="flex justify-center h-[max-content] space-x-2 py-2 m-auto">
+          {contents.map((content, index) => (
+            <button
+              key={content.h}
+              onClick={() => goToSlide(index)}
+              className={`w-[10px] h-[10px] rounded-full cursor-pointer transition-all duration-300 transform ${
+                index === currentIndex
+                  ? "bg-[#3d5cff] scale-150"
+                  : "bg-gray-400 scale-100"
+              }`}
+            />
+          ))}
+        </div>
         <button className="rounded-lg bg-[#3D5CFF] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px]">
           Get Started
         </button>
