@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import image1 from "../../assets/image/Elearning-Image1.png";
 import image2 from "../../assets/image/Elearning-Image2.png";
 import image3 from "../../assets/image/Elearning-Image3.png";
@@ -51,9 +52,9 @@ const Main = () => {
             />
           ))}
         </div>
-        <button className="rounded-lg bg-[#3D5CFF] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px]">
+        <Link to="/login" className="rounded-lg bg-[#3D5CFF] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px]">
           Get Started
-        </button>
+        </Link>
       </div>
     </div>
   );
