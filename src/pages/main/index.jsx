@@ -37,13 +37,13 @@ const Main = () => {
   return (
     <div className="flex flex-col px-8 my-[50px] text-[#32449b]">
       <Carousel contents={contents} />
-      <div className="flex justify-between ">
-        <div className="flex justify-center h-[max-content] space-x-2 py-2 m-auto">
+      <div className="flex justify-between mdd:justify-center mdd:gap-[50px]">
+        <div className="flex justify-between h-[max-content] space-x-2 py-2 m-auto mdd:m-0 mdd:my-auto">
           {contents.map((content, index) => (
             <button
               key={content.h}
               onClick={() => goToSlide(index)}
-              className={`w-[10px] h-[10px] rounded-full cursor-pointer transition-all duration-300 transform ${
+              className={`w-[12px] h-[12px] rounded-full cursor-pointer transition-all duration-300 transform ${
                 index === currentIndex
                   ? "bg-[#3d5cff] scale-150"
                   : "bg-gray-400 scale-100"

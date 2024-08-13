@@ -23,7 +23,7 @@ const Carousel = (props) => {
       <h1 className="text-3xl font-extrabold text-center mb-[30px]">
         {props.contents[currentIndex].h}
       </h1>
-      <p className=" text-center mb-[70px]">{props.contents[currentIndex].p}</p>
+      <p className=" text-center mb-[70px] max-w-[450px] mx-auto">{props.contents[currentIndex].p}</p>
     </>
   );
 };
