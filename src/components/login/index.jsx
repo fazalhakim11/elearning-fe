@@ -6,7 +6,7 @@ import Loading from "../loading";
 
 const index = (props) => {
   const navigate = useNavigate();
-  const {contents} = useDataStores()
+  const { contents } = useDataStores();
 
   const [
     name,
@@ -22,11 +22,13 @@ const index = (props) => {
   ] = useLogin();
   const { isLoading } = useDataStores();
 
-  const Login = () => {
+  const login = () => {
     return (
-      <div className="flex flex-col content-center mt-5 mb-5">
+      <div className="flex flex-col content-center mt-5 mb-5 md:self-center">
         <form onSubmit={handleLogin} className="flex flex-col self-center">
-          <h1 className="mb-5 text-4xl font-extrabold text-center text-[#4f7ff0]">Login</h1>
+          <h1 className="mb-5 text-4xl font-extrabold text-center text-[#4f7ff0]">
+            Login
+          </h1>
           <label htmlFor="email" className="text-[#4f7ff0]">
             Email
           </label>
@@ -101,11 +103,13 @@ const index = (props) => {
     );
   };
 
-  const SignUp = () => {
+  const signUp = () => {
     return (
-      <div className="flex flex-col content-center mt-5 mb-5">
+      <div className="flex flex-col content-center mt-5 mb-5 md:self-center">
         <form className="flex flex-col self-center" onSubmit={handleSignup}>
-          <h1 className="mb-5 text-4xl font-extrabold text-[#4f7ff0] text-center">Sign Up</h1>
+          <h1 className="mb-5 text-4xl font-extrabold text-[#4f7ff0] text-center">
+            Sign Up
+          </h1>
           <label htmlFor="username" className="text-[#4f7ff0]">
             Username
           </label>
@@ -114,7 +118,7 @@ const index = (props) => {
             name="username"
             id="username"
             value={name}
-            className="border border-[#4f7ff0] rounded-lg px-3 h-8 mb-6"
+            className="border border-[#4f7ff0] rounded-xl px-3 h-8 mb-6"
             onChange={(e) => setName(e.target.value)}
           />
           <label htmlFor="email" className="text-[#4f7ff0]">
@@ -127,8 +131,8 @@ const index = (props) => {
             value={email}
             className={
               error === "Email already registered"
-                ? "border border-[#4f7ff0] rounded-lg px-3 h-8"
-                : "border border-[#4f7ff0] rounded-lg px-3 h-8 mb-6"
+                ? "border border-[#4f7ff0] rounded-xl px-3 h-8"
+                : "border border-[#4f7ff0] rounded-xl px-3 h-8 mb-6"
             }
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -149,8 +153,8 @@ const index = (props) => {
               error === "Bad request" ||
               error === "Password is too weak" ||
               error === "Failed to register user"
-                ? "border border-[#4f7ff0] rounded-lg px-3 h-8 "
-                : "border border-[#4f7ff0] rounded-lg px-3 h-8 mb-8"
+                ? "border border-[#4f7ff0] rounded-xl px-3 h-8 "
+                : "border border-[#4f7ff0] rounded-xl px-3 h-8 mb-8"
             }
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -196,15 +200,21 @@ const index = (props) => {
   }
 
   return props.login ? (
-    <>
-      <img src={contents[0].image} className="h-[300px] mx-auto mt-5"/>
-      <Login />
-    </>
+    <div className="md:flex md:justify-around md:mx-5 md:my-5">
+      <img
+        src={contents[0].image}
+        className="h-[300px] md:h-[450px] mx-auto md:mx-0 mt-5"
+      />
+      {login()}
+    </div>
   ) : (
-    <>
-    <img src={contents[1].image} className="h-[250px] mx-auto mt-5"/>
-    <SignUp />
-    </>
+    <div className="md:flex md:justify-around md:mx-5 md:my-5">
+      <img
+        src={contents[1].image}
+        className="h-[250px] md:h-[450px] mx-auto md:mx-0 mt-5"
+      />
+      {signUp()}
+    </div>
   );
 };
 
