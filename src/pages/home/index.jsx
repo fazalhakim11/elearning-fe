@@ -32,7 +32,7 @@ const Home = (props) => {
                                 className= {kelas.id > 2 ? 
                                     "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
                                     : 
-                                    "bg-[#4f6af0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
+                                    "bg-[#4f7ff0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
                             >
                                 {kelas.nama}
                             </button>
@@ -57,7 +57,7 @@ const Home = (props) => {
 
   return (
     <div >
-        <header className="bg-[#4f6af0] p-3 mb-5 rounded-b-xl">
+        <header className="bg-[#4f7ff0] p-3 mb-5 rounded-b-xl">
             <h1 className="text-2xl font-bold text-white">Wellcome, {firstName}!</h1>
             <h1 className=" text-lg font-medium text-white">Please select a grade</h1>
         </header>

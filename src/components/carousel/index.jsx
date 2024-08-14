@@ -34,7 +34,7 @@ const Carousel = (props) => {
         {window.screen.width >= 1024 ? (
           <Link
             to="/login"
-            className="rounded-lg bg-[#3D5CFF] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px] md:w-[40%] md:text-center md:self-start"
+            className="rounded-lg bg-[#4f7ff0] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px] md:w-[40%] md:text-center md:self-start"
           >
             Get Started
           </Link>
