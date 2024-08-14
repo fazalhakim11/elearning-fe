@@ -24,7 +24,7 @@ const index = (props) => {
 
   const Login = () => {
     return (
-      <div className="flex flex-col content-center mt-5">
+      <div className="flex flex-col content-center mt-5 mb-5">
         <form onSubmit={handleLogin} className="flex flex-col self-center">
           <h1 className="mb-5 text-4xl font-extrabold text-center text-[#4f7ff0]">Login</h1>
           <label htmlFor="email" className="text-[#4f7ff0]">
@@ -103,10 +103,10 @@ const index = (props) => {
 
   const SignUp = () => {
     return (
-      <div className="flex flex-col content-center mt-12">
+      <div className="flex flex-col content-center mt-5 mb-5">
         <form className="flex flex-col self-center" onSubmit={handleSignup}>
-          <h1 className="mb-10 text-4xl font-extrabold">Sign Up</h1>
-          <label htmlFor="username" className="text-[#858897]">
+          <h1 className="mb-5 text-4xl font-extrabold text-[#4f7ff0] text-center">Sign Up</h1>
+          <label htmlFor="username" className="text-[#4f7ff0]">
             Username
           </label>
           <input
@@ -114,10 +114,10 @@ const index = (props) => {
             name="username"
             id="username"
             value={name}
-            className="border border-slate-900 rounded-lg px-3 h-8 mb-6"
+            className="border border-[#4f7ff0] rounded-lg px-3 h-8 mb-6"
             onChange={(e) => setName(e.target.value)}
           />
-          <label htmlFor="email" className="text-[#858897]">
+          <label htmlFor="email" className="text-[#4f7ff0]">
             Email
           </label>
           <input
@@ -127,8 +127,8 @@ const index = (props) => {
             value={email}
             className={
               error === "Email already registered"
-                ? "border border-slate-900 rounded-lg px-3 h-8"
-                : "border border-slate-900 rounded-lg px-3 h-8 mb-6"
+                ? "border border-[#4f7ff0] rounded-lg px-3 h-8"
+                : "border border-[#4f7ff0] rounded-lg px-3 h-8 mb-6"
             }
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -137,7 +137,7 @@ const index = (props) => {
           ) : (
             ""
           )}
-          <label htmlFor="password" className="text-[#858897]">
+          <label htmlFor="password" className="text-[#4f7ff0]">
             Password
           </label>
           <input
@@ -149,8 +149,8 @@ const index = (props) => {
               error === "Bad request" ||
               error === "Password is too weak" ||
               error === "Failed to register user"
-                ? "border border-slate-900 rounded-lg px-3 h-8 "
-                : "border border-slate-900 rounded-lg px-3 h-8 mb-8"
+                ? "border border-[#4f7ff0] rounded-lg px-3 h-8 "
+                : "border border-[#4f7ff0] rounded-lg px-3 h-8 mb-8"
             }
             onChange={(e) => setPassword(e.target.value)}
           />
@@ -182,7 +182,7 @@ const index = (props) => {
             onClick={() => {
               navigate("/login");
             }}
-            className="text-[#4f7ff0]"
+            className="text-[#4f7ff0] font-bold"
           >
             Login
           </button>
@@ -201,7 +201,10 @@ const index = (props) => {
       <Login />
     </>
   ) : (
+    <>
+    <img src={contents[1].image} className="h-[250px] mx-auto mt-5"/>
     <SignUp />
+    </>
   );
 };
 
