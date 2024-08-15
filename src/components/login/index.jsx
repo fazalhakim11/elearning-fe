@@ -24,7 +24,7 @@ const index = (props) => {
 
   const login = () => {
     return (
-      <div className="flex flex-col content-center mt-5 mb-5 md:self-center">
+      <div className="animate__animated animate__fadeInRight flex flex-col content-center mt-5 mb-5 md:self-center">
         <form onSubmit={handleLogin} className="flex flex-col self-center">
           <h1 className="mb-5 text-4xl font-extrabold text-center text-[#4f7ff0]">
             Login
@@ -105,7 +105,7 @@ const index = (props) => {
 
   const signUp = () => {
     return (
-      <div className="flex flex-col content-center mt-5 mb-5 md:self-center">
+      <div className="animate__animated animate__fadeInRight flex flex-col content-center mt-5 mb-5 md:self-center">
         <form className="flex flex-col self-center" onSubmit={handleSignup}>
           <h1 className="mb-5 text-4xl font-extrabold text-[#4f7ff0] text-center">
             Sign Up
@@ -203,7 +203,7 @@ const index = (props) => {
     <div className="md:flex md:justify-around md:mx-5 md:my-5">
       <img
         src={contents[0].image}
-        className="h-[300px] md:h-[450px] mx-auto md:mx-0 mt-5"
+        className="animate__animated animate__fadeInLeft h-[300px] md:h-[450px] mx-auto md:mx-0 mt-5"
       />
       {login()}
     </div>
@@ -211,7 +211,7 @@ const index = (props) => {
     <div className="md:flex md:justify-around md:mx-5 md:my-5">
       <img
         src={contents[1].image}
-        className="h-[250px] md:h-[450px] mx-auto md:mx-0 mt-5"
+        className="animate__animated animate__fadeInLeft h-[250px] md:h-[450px] mx-auto md:mx-0 mt-5"
       />
       {signUp()}
     </div>
