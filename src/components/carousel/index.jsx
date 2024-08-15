@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import 'animate.css'
 
 import useDataStore from "../../stores/dataStores";
 
@@ -19,22 +20,22 @@ const Carousel = (props) => {
     <div className="md:flex md:flex-row-reverse md:justify-between">
       <div className="md:min-w-[500px] ">
         <img
-          className="h-[300px] md:h-[375px] mx-auto mb-[70px] ease-in-out"
+          className="animate__animated animate__fadeInRight h-[300px] md:h-[375px] mx-auto mb-[70px] ease-in-out"
           src={props.contents[currentIndex].image}
           alt="E-learning"
         />
       </div>
       <div className="md:flex md:flex-col md:justify-center">
-        <h1 className="md:text-[50px] text-3xl font-extrabold text-center mb-[30px] md:text-left ">
+        <h1 className="animate__animated animate__fadeInLeft md:text-[50px] text-3xl font-extrabold text-center mb-[30px] md:text-left ">
           {props.contents[currentIndex].h}
         </h1>
-        <p className="md:text-xl text-center mb-[70px] max-w-[450px] mx-auto md:text-left">
+        <p className="animate__animated animate__fadeInLeft md:text-xl text-center mb-[70px] max-w-[450px] mx-auto md:text-left">
           {props.contents[currentIndex].p}
         </p>
         {window.screen.width >= 1024 ? (
           <Link
             to="/login"
-            className="rounded-lg bg-[#4f7ff0] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px] md:w-[40%] md:text-center md:self-start"
+            className="animate__animated animate__fadeInLeft rounded-lg bg-[#4f7ff0] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px] md:w-[40%] md:text-center md:self-start"
           >
             Get Started
           </Link>
