@@ -33,7 +33,7 @@ const Main = () => {
     <div className="flex flex-col px-8 my-[50px] text-[#3f61b1]">
       <Carousel contents={contents} />
       <div className="flex justify-between mdd:justify-center mdd:gap-[50px]">
-        <div className="flex justify-between h-[max-content] space-x-2 py-2 m-auto mdd:m-0 mdd:my-auto">
+        <div className="animate__animated animate__fadeInLeft flex justify-between h-[max-content] space-x-2 py-2 m-auto mdd:m-0 mdd:my-auto">
           {contents.map((content, index) => (
             <button
               key={content.h}
@@ -48,7 +48,7 @@ const Main = () => {
         </div>
         <Link
           to="/login"
-          className="rounded-lg bg-[#4f7ff0] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px]"
+          className="animate__animated animate__fadeInRight rounded-lg bg-[#4f7ff0] text-sm text-white font-medium msm:py-[10px] msm:px-[20px] py-[15px] px-[40px]"
         >
           Get Started
         </Link>
