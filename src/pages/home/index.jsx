@@ -57,9 +57,9 @@ const Home = (props) => {
 
   return (
     <div >
-        <header className="bg-[#4f7ff0] p-3 mb-5 rounded-b-xl">
-            <h1 className="text-2xl font-bold text-white">Wellcome, {firstName}!</h1>
-            <h1 className=" text-lg font-medium text-white">Please select a grade</h1>
+        <header className="bg-white p-5 mb-5 rounded-b-xl drop-shadow-xl">
+            <h1 className="text-2xl font-bold text-black">Wellcome, {firstName}!</h1>
+            <h1 className=" text-lg font-medium text-black">Please select a grade</h1>
         </header>
         {isLoading? 
             <Loading home/>
