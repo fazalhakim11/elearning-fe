@@ -5,6 +5,8 @@ import LearningMode from "./learningMode"
 import Loading from "../../components/loading";
 import useDataStores from "../../stores/dataStores";
 
+import image1 from "../../assets/image/Grade Image (1).png"
+
 const Home = (props) => {
     const [isLoading, data, getClasses, user] = useGetData()
     const firstName = user.nama.split(" ")[0]
@@ -23,17 +25,18 @@ const Home = (props) => {
         return (
             <>
             {data.length > 1 ?
-                <div className="flex flex-col md:flex-row md:justify-center md:gap-8 md:flex-wrap" >
+                <div className="flex justify-center sm:gap-[10px] mdd:gap-8 flex-wrap" >
                     {data.map((kelas) => (
-                        <div className="flex flex-col mb-3 md:mb-0 md:basis-1/4" key={kelas.id}>
+                        <div className="flex flex-col md:mb-0 basis-[45%] mdd:basis-1/4" key={kelas.id}>
                             <button
                                 onClick={()=>handleBtn(kelas.id)}
                                 disabled={kelas.id > 2} 
                                 className= {kelas.id > 2 ? 
-                                    "bg-slate-600 text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]" 
+                                    "bg-slate-600 text-white self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] " 
                                     : 
-                                    "bg-[#4f7ff0] text-white self-center rounded mb-2 md:mb-0 p-2 md:py-4 w-1/2 mdd:w-1/3 md:w-[100%]"}
+                                    "bg-[#4f7ff0] text-white self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] "}
                             >
+                                <img src={image1} alt="" />
                                 {kelas.nama}
                             </button>
                             {isToggle && kelasId === kelas.id ?
