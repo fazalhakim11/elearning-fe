@@ -37,7 +37,11 @@ const useDataStores = create(set => ({
           p: `Various learning modes make it easier for you to understand, easy to use, and more
               importantly fun`,
         },
-      ]
+      ],
+      isToggle: false,
+      setIsToggle: res => set({isToggle: res}),
+      kelasId: 0,
+      setKelasId: res => set({kelasId: res})
 }))
 
 export default useDataStores

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useGetData } from "../../hooks/useGetData";
 import LearningMode from "./learningMode"
 import Loading from "../../components/loading";
+import useDataStores from "../../stores/dataStores";
 
 const Home = (props) => {
     const [isLoading, data, getClasses, user] = useGetData()
@@ -12,8 +13,7 @@ const Home = (props) => {
         getClasses()
     },[])
 
-    const [isToggle, setIsToggle] = useState(false)
-    const [kelasId, setKelasId] = useState()
+    const {isToggle, setIsToggle, kelasId, setKelasId} = useDataStores()
     const handleBtn =(kelasId)=>{
         setIsToggle(!isToggle)
         setKelasId(kelasId)
