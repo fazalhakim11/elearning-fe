@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { useGetData } from "../../hooks/useGetData";
 import LearningMode from "./learningMode"
@@ -25,7 +25,7 @@ const Home = (props) => {
         return (
             <>
             {data.length > 1 ?
-                <div className="flex justify-center sm:gap-[10px] mdd:gap-8 flex-wrap" >
+                <div className="flex justify-center gap-1 sm:gap-3 mdd:gap-8 flex-wrap mb-5" >
                     {data.map((kelas) => (
                         <div className="flex flex-col md:mb-0 basis-[45%] mdd:basis-1/4" key={kelas.id}>
                             <button
