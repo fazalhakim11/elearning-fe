@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import useDataStores from "../../../stores/dataStores";
+import learning from "../../../assets/image/learning.png"
 
 const LearningMode = (props) => {
   const [data, setData] = useState([]);
@@ -40,31 +41,33 @@ const LearningMode = (props) => {
     navigate("/subjects", { state: { user: { id, userData } } });
   };
 
-  const {isToggle, setIsToggle} = useDataStores()
+  const { isToggle, setIsToggle } = useDataStores();
 
   return isLoading ? (
-    <p className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4f7ff0] text-white p-5 rounded">
+    <p className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black p-5 rounded-xl">
       Loading...
     </p>
   ) : (
-    <div className="animate__animated animate__fadeIn w-max flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4f7ff0] text-white p-3 rounded-lg">
-      <div className="flex">
-        <h1 className="font-bold text-lg mb-1">Learning Modes</h1>
-        <button onClick={()=>setIsToggle(!isToggle)} className="w-max h-max text-center px-1.5 ms-3 rounded text-white">
-          X
-        </button>
-      </div>
+    <div className="animate__animated animate__fadeIn w-[60%] mdd:w-[40%] flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black text-center py-5 px-3 rounded-xl">
+      <img src={learning} alt="Learning" className="w-[30px] md:w-[40px] mx-auto mb-3" />
+      <h1 className="font-bold text-lg mb-3">Learning Modes</h1>
       <div>
         {data.map((data) => (
           <button
             key={data.id}
-            className="block"
+            className="block mx-auto leading-snug"
             onClick={() => handleClick(data.id)}
           >
             {data.nama}
           </button>
         ))}
       </div>
+      <button
+        onClick={() => setIsToggle(!isToggle)}
+        className="w-max h-max px-5 py-2 mt-5 mx-auto rounded-[20px] bg-[#4f7ff0] text-white"
+      >
+        Close
+      </button>
     </div>
   );
 };
