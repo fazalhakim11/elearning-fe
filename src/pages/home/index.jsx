@@ -5,8 +5,8 @@ import LearningMode from "./learningMode"
 import Loading from "../../components/loading";
 import useDataStores from "../../stores/dataStores";
 
-import image1 from "../../assets/image/Grade Image (2).png"
-import image2 from "../../assets/image/Grade Image (1).png"
+import image1 from "../../assets/image/Grade Image (1).png"
+import image2 from "../../assets/image/Grade Image (6).png"
 
 const Home = (props) => {
     const [isLoading, data, getClasses, user] = useGetData()
@@ -33,11 +33,11 @@ const Home = (props) => {
                                 onClick={()=>handleBtn(kelas.id)}
                                 disabled={kelas.id > 2} 
                                 className= {kelas.id > 2 ? 
-                                    "bg-slate-600 text-white self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] " 
+                                    "bg-slate-600 text-white font-bold self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] " 
                                     : 
-                                    "bg-[#2dc75b] text-white self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] "}
+                                    `bg-[${kelas.bg_color}] text-white font-bold self-center rounded-xl md:mb-0 p-2 md:py-4 w-[100%] `}
                             >
-                                <img src={kelas.id > 2 ? image1 : image2} alt="" />
+                                <img src={kelas.id > 2 ? image1 : kelas.image} alt="" />
                                 {kelas.nama}
                             </button>
                             {isToggle && kelasId === kelas.id ?
