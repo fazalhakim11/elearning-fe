@@ -26,9 +26,9 @@ const Home = (props) => {
         return (
             <>
             {data.length > 1 ?
-                <div className="flex justify-center gap-1 sm:gap-3 mdd:gap-8 flex-wrap mb-5" >
+                <div className="grid mdd:grid-cols-4 grid-cols-2 gap-1 sm:gap-5 md:gap-7 mb-5 mx-5 md:mx-[5rem]" >
                     {data.map((kelas) => (
-                        <div className="flex flex-col md:mb-0 basis-[45%] mdd:basis-1/4" key={kelas.id}>
+                        <div className="flex flex-col md:mb-0" key={kelas.id}>
                             <button
                                 onClick={()=>handleBtn(kelas.id)}
                                 disabled={kelas.id > 2} 
@@ -61,7 +61,7 @@ const Home = (props) => {
 
   return (
     <div >
-        <header className="bg-white p-5 mb-5 rounded-b-xl drop-shadow-xl">
+        <header className="bg-white p-5 md:px-[5rem] mb-5 rounded-b-xl drop-shadow-xl">
             <h1 className="text-2xl font-bold text-black">Wellcome, {firstName}!</h1>
             <h1 className=" text-lg font-medium text-black">Please select a grade</h1>
         </header>

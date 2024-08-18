@@ -47,7 +47,7 @@ const LearningMode = (props) => {
       Loading...
     </p>
   ) : (
-    <div className="animate__animated animate__fadeIn w-max flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4f7ff0] text-white p-3 rounded">
+    <div className="animate__animated animate__fadeIn w-max flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#4f7ff0] text-white p-3 rounded-lg">
       <div className="flex">
         <h1 className="font-bold text-lg mb-1">Learning Modes</h1>
         <button onClick={()=>setIsToggle(!isToggle)} className="w-max h-max text-center px-1.5 ms-3 rounded text-white">
