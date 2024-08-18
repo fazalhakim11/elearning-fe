@@ -44,9 +44,9 @@ const Subjects = (props) => {
 
     const setCourseBg = (subject) => {
         if (subject === "Natural science") {
-            return "flex md:basis-1/4 bg-[#44c04e] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+            return "flex md:basis-1/4 bg-[#2dc75b] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
         } else if (subject === "Social science") {
-            return "flex md:basis-1/4 bg-[#f0974f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+            return "flex md:basis-1/4 bg-[#f0cd4f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
         } else {
             return "flex md:basis-1/4 bg-[#4f7ff0] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
         }
