@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import useDataStores from "../../../stores/dataStores";
-import learning from "../../../assets/image/learning.png"
+import learning from "../../../assets/image/learning.png";
 
 const LearningMode = (props) => {
   const [data, setData] = useState([]);
@@ -44,12 +44,14 @@ const LearningMode = (props) => {
   const { isToggle, setIsToggle } = useDataStores();
 
   return isLoading ? (
-    <p className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black p-5 rounded-xl">
-      Loading...
-    </p>
+    <Loading />
   ) : (
-    <div className="animate__animated animate__fadeIn w-[60%] mdd:w-[40%] flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black text-center py-5 px-3 rounded-xl">
-      <img src={learning} alt="Learning" className="w-[30px] md:w-[40px] mx-auto mb-3" />
+    <div className="animate__animated animate__fadeIn w-[60%] mdd:w-[40%] md:w-[30%] flex flex-col absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black text-center py-5 px-3 rounded-xl">
+      <img
+        src={learning}
+        alt="Learning"
+        className="w-[30px] md:w-[40px] mx-auto mb-3"
+      />
       <h1 className="font-bold text-lg mb-3">Learning Modes</h1>
       <div>
         {data.map((data) => (
@@ -73,3 +75,23 @@ const LearningMode = (props) => {
 };
 
 export default LearningMode;
+
+const Loading = () => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log("Delay");
+      setShow(true);
+    }, 300); // Delay for 1 second
+
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
+
+  return (
+    show &&
+    <p className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#eaeaea] text-black p-5 rounded-xl">
+      Loading...
+    </p>
+  );
+};
