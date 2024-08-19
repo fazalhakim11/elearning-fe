@@ -200,17 +200,19 @@ const index = (props) => {
   }
 
   return props.login ? (
-    <div className="md:flex md:justify-around md:mx-5 md:my-5">
+    <div className="md:flex md:justify-around md:mx-5 md:my-5 overflow-hidden">
       <img
         src={contents[0].image}
+        alt=""
         className="animate__animated animate__fadeInLeft h-[300px] md:h-[450px] mx-auto md:mx-0 mt-5"
       />
       {login()}
     </div>
   ) : (
-    <div className="md:flex md:justify-around md:mx-5 md:my-5">
+    <div className="md:flex md:justify-around md:mx-5 md:my-5 overflow-hidden">
       <img
         src={contents[1].image}
+        alt=""
         className="animate__animated animate__fadeInLeft h-[250px] md:h-[450px] mx-auto md:mx-0 mt-5"
       />
       {signUp()}

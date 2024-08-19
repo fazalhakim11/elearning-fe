@@ -11,7 +11,7 @@ const Main = () => {
   };
 
   return window.screen.width >= 1024 ? (
-    <div className="flex flex-col px-8 my-[50px] mb-0 text-[#3f61b1]">
+    <div className="flex flex-col px-8 my-[50px] mb-0 text-[#3f61b1] overflow-hidden">
       <Carousel contents={contents} />
       <div className="flex justify-between mdd:justify-center mdd:gap-[50px]">
         <div className="flex justify-between h-[max-content] space-x-2 py-2 m-auto mdd:m-0 mdd:my-auto">
@@ -30,7 +30,7 @@ const Main = () => {
       </div>
     </div>
   ) : (
-    <div className="flex flex-col px-8 my-[50px] text-[#3f61b1]">
+    <div className="flex flex-col px-8 my-[50px] text-[#3f61b1] overflow-hidden">
       <Carousel contents={contents} />
       <div className="flex justify-between mdd:justify-center mdd:gap-[50px]">
         <div className="animate__animated animate__fadeInLeft flex justify-between h-[max-content] space-x-2 py-2 m-auto mdd:m-0 mdd:my-auto">
