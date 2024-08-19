@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { useGetData } from "../../hooks/useGetData";
 import LearningMode from "./learningMode"
@@ -6,14 +6,20 @@ import Loading from "../../components/loading";
 import useDataStores from "../../stores/dataStores";
 
 import image1 from "../../assets/image/Grade Image (1).png"
-import image2 from "../../assets/image/Grade Image (6).png"
 
 const Home = (props) => {
     const [isLoading, data, getClasses, user] = useGetData()
     const firstName = user.nama.split(" ")[0]
+
+    const [show, setShow] = useState(false)
     
     useEffect (()=>{
         getClasses()
+        const timer = setTimeout(() => {
+            setShow(true);
+          }, 500); // Delay for 1 second
+      
+          return () => clearTimeout(timer);
     },[])
 
     const {isToggle, setIsToggle, kelasId, setKelasId} = useDataStores()
@@ -49,6 +55,7 @@ const Home = (props) => {
                     ))}
                 </div>
             : (
+                show &&
                 <div className=" flex justify-center h-screen">
                     <div className="mt-[25vh] h-max bg-[#4773d9] rounded-lg p-5">
                         <p className="bg-[#426bca] p-5 rounded-lg text-xl font-bold text-white">Not Found</p>

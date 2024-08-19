@@ -81,7 +81,6 @@ const Loading = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      console.log("Delay");
       setShow(true);
     }, 300); // Delay for 1 second
 

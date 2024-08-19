@@ -1,7 +1,18 @@
+import { useState, useEffect } from "react";
 
 const Loading = (props) => {
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(true);
+    }, 500); // Delay for 1 second
+
+    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+  }, []);
   
   return (
+    show &&
     <div className={props.home ? 
         "flex justify-center h-screen"
         : 
