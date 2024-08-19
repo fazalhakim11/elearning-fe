@@ -44,11 +44,11 @@ const Subjects = (props) => {
 
     const setCourseBg = (subject) => {
         if (subject === "Natural science") {
-            return "flex md:basis-1/4 bg-[#2dc75b] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+            return " bg-[#2dc75b] "
         } else if (subject === "Social science") {
-            return "flex md:basis-1/4 bg-[#f0cd4f] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+            return " bg-[#f0cd4f] "
         } else {
-            return "flex md:basis-1/4 bg-[#4f7ff0] p-2 mx-3 my-4 mdd:m-0 rounded-xl"
+            return " bg-[#4f7ff0] "
         }
     }
 
@@ -61,24 +61,24 @@ const Subjects = (props) => {
             <>
                 <Header name="Courses"/>
                 {subjects.length > 1 ? (
-                        <div className="mdd:flex mdd:justify-between md:justify-start md:gap-3 lg:gap-6 mdd:m-8 flex-wrap">
+                        <div className="flex mdd:justify-between md:justify-start mdd:gap-3 lg:gap-6 mdd:m-8 flex-wrap">
                         {subjects.map((subject) => (
-                                <div 
+                                <button 
                                     key={subject.id}
-                                    className={setCourseBg(subject.nama)}
+                                    className={`${setCourseBg(subject.nama)} flex md:basis-1/4 p-2 mx-3 mb-4 mdd:m-0 rounded-xl grow`}
+                                    onClick={()=>handleClick(subject.id)}
                                 >
                                     <img 
                                         src={subject.icon} 
                                         alt={`${subject.nama}.jpg`}
                                         className="rounded-lg h-[70px] lg:h-[100px]"
                                     />
-                                    <button 
-                                        className="ms-3 text-white"
-                                        onClick={()=>handleClick(subject.id)}
+                                    <h1 
+                                        className="ms-3 text-white font-bold self-center"
                                     >
                                         {subject.nama}
-                                    </button>
-                                </div>
+                                    </h1>
+                                </button>
                         ))}
                         </div>
                 ) : (
