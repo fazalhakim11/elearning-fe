@@ -1,7 +1,7 @@
 
 const index = (props) => {
   return (
-    <div className="mx-auto min-h-[100vh]">
+    <div>
       {props.children}
     </div>
   )
