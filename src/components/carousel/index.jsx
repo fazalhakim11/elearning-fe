@@ -12,7 +12,7 @@ const Carousel = (props) => {
   };
 
   useEffect(() => {
-    const timer = setInterval(nextSlide, 3000); // Auto-slide every 3 seconds
+    const timer = setInterval(nextSlide, 3000);
     return () => clearInterval(timer);
   }, [currentIndex]);
 

@@ -14,7 +14,7 @@ export const useGetData =()=>{
             setIsLoading(true)
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/kelas/`,{
                 headers: {
-                    'Authorization' : `Bearer ${user.token}` // Using Bearer token authentication
+                    'Authorization' : `Bearer ${user.token}`
                 }
             }) 
             setIsLoading(false)

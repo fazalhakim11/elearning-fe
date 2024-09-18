@@ -6,9 +6,9 @@ const Loading = (props) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    }, 500); // Delay for 1 second
+    }, 500);
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
   }, []);
   
   return (

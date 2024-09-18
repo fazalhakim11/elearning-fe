@@ -22,10 +22,8 @@ export const useLogin = () => {
             });
             setUserId(response.data.data.id )
             setIsLoading(false)
-            // Handle successful login, e.g., store token, redirect user
             navigate("/classes", { state: { user: response.data } })
         } catch (err) {
-            // Handle error
             setIsLoading(false)
             setError(err.response ? err.response.data.message : 'Login failed');
             console.error('Login failed:', err.response ? err.response.data : err); 
@@ -43,11 +41,9 @@ export const useLogin = () => {
             });
             setIsLoading(false)
             console.log(response)
-            // Handle successful signup, 
             alert("User successfully registered, please login")
             navigate("/", )
         } catch (err) {
-            // Handle error
             setIsLoading(false)
             setError(err.response ? err.response.data.message : 'Login failed');
             console.error('Login failed:', err.response ? err.response.data : err); 

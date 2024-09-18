@@ -12,8 +12,6 @@ const Subjects = (props) => {
     const {isLoading, setIsLoading} = useDataStores()
     const [subjects, setSubjects] = useState([])
 
-    // console.log("Subjects", subjects)
-
     const location = useLocation()
     const data = location.state?.user
     const learningModes = data.id
@@ -27,7 +25,7 @@ const Subjects = (props) => {
             setIsLoading(true)
             const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes}`, {
                 headers: {
-                    'Authorization' : `Bearer ${token}` // Using Bearer token authentication
+                    'Authorization' : `Bearer ${token}`
                 }
             })
             setSubjects(res.data.data)

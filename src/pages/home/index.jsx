@@ -17,7 +17,7 @@ const Home = (props) => {
         getClasses()
         const timer = setTimeout(() => {
             setShow(true);
-          }, 500); // Delay for 1 second
+          }, 500);
       
           return () => clearTimeout(timer);
     },[])

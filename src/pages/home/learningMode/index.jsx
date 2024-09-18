@@ -20,7 +20,7 @@ const LearningMode = (props) => {
         `${import.meta.env.VITE_API_URL}/api/mode_pembelajaran/${kelas}`,
         {
           headers: {
-            Authorization: `Bearer ${userData.token}`, // Using Bearer token authentication
+            Authorization: `Bearer ${userData.token}`,
           },
         }
       );
@@ -82,9 +82,9 @@ const Loading = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(true);
-    }, 300); // Delay for 1 second
+    }, 300);
 
-    return () => clearTimeout(timer); // Cleanup the timer on component unmount
+    return () => clearTimeout(timer);
   }, []);
 
   return (
