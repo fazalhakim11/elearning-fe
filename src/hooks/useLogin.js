@@ -32,7 +32,7 @@ export const useLogin = () => {
       setToken(response.data.data.token);
       setExp(decoded.exp);
       setIsLoading(false);
-      navigate("/classes");
+      navigate("/");
     } catch (err) {
       setIsLoading(false);
       setError(err.response ? err.response.data.message : "Login failed");

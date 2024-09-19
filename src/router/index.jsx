@@ -13,7 +13,7 @@ import ErrorPage from "../pages/error";
 const index = () => {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/home",
       element: <Main />,
       errorElement: <ErrorPage notFound/>
     },
@@ -26,7 +26,7 @@ const index = () => {
       element: <Signup />,
     },
     {
-      path: "/classes",
+      path: "/",
       element: <Classes />,
       errorElement: <ErrorPage page/>
     },

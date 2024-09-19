@@ -18,7 +18,7 @@ const ErrorPage = (props) => {
     >
       <h1 style={{ fontWeight: "700", fontSize: "24px" }}>Oops!!</h1>
       <p>You have to select grade first</p>
-      <Link to="/classes">Click Here</Link>
+      <Link to="/">Click Here</Link>
     </div>
   ) : (
     <div

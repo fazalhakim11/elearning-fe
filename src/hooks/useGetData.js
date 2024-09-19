@@ -47,7 +47,7 @@ export const useGetData = () => {
       setUser(decode.name);
       setUserId(decode.id);
     } catch (error) {
-      navigate("/login");
+      navigate("/home");
       setIsLoading(false);
       console.log(error);
     }
