@@ -1,26 +1,26 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import useDataStores from "../../../stores/dataStores";
 import learning from "../../../assets/image/learning.png";
+import { axiosJWT } from "../../../lib/axios";
 
 const LearningMode = (props) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { token } = useDataStores()
 
-  const location = useLocation();
-  const userData = location.state?.user.data;
   const kelas = props.kelas;
 
   const getLearingMode = async () => {
     try {
       setIsLoading(true);
-      const res = await axios.get(
+      const res = await axiosJWT.get(
         `${import.meta.env.VITE_API_URL}/api/mode_pembelajaran/${kelas}`,
         {
           headers: {
-            Authorization: `Bearer ${userData.token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
