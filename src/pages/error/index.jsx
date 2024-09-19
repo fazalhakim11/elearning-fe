@@ -7,6 +7,19 @@ const ErrorPage = (props) => {
       <h1>Oops!</h1>
       <p>{error.statusText || error.message}</p>
     </div>
+  ) : props.page ? (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+      }}
+      className="text-center min-h-[100vh]"
+    >
+      <h1 style={{ fontWeight: "700", fontSize: "24px" }}>Oops!!</h1>
+      <p>You have to select grade first</p>
+      <Link to="/classes">Click Here</Link>
+    </div>
   ) : (
     <div
       style={{

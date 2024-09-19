@@ -28,27 +28,27 @@ const index = () => {
     {
       path: "/classes",
       element: <Classes />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage page/>
     },
     {
       path: "/subjects",
       element: <Subjects />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage page/>
     },
     {
       path: "/chapters",
       element: <Chapters />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage page/>
     },
     {
       path: "/sub_chapters",
       element: <SubChapters />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage page/>
     },
     {
       path: "/materials",
       element: <Materials />,
-      errorElement: <ErrorPage />
+      errorElement: <ErrorPage page/>
     },
   ]);
   return <RouterProvider router={router} />;
