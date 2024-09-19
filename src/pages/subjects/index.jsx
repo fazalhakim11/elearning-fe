@@ -7,23 +7,25 @@ import useDataStores from "../../stores/dataStores";
 import Loading from "../../components/loading"
 import Header from "../../components/header"
 import NotFound from "../../components/notFound"
+import { jwtDecode } from "jwt-decode";
+import { useGetData } from "../../hooks/useGetData";
+import { axiosJWT } from "../../lib/axios";
 
 const Subjects = (props) => {
-    const {isLoading, setIsLoading} = useDataStores()
+    const [data, user, userId, getClasses, getToken] = useGetData()
+    const {isLoading, setIsLoading, token} = useDataStores()
     const [subjects, setSubjects] = useState([])
 
     const location = useLocation()
-    const data = location.state?.user
-    const learningModes = data.id
-    const token = data.userData.token
-    const userId = data.userData.id
+    const id = location.state?.id
+    const learningModes = id
 
     const navigate = useNavigate()
 
     const getSubjects = async () => {
         try{
             setIsLoading(true)
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes}`, {
+            const res = await axiosJWT.get(`${import.meta.env.VITE_API_URL}/api/mata_pelajaran/${learningModes}`, {
                 headers: {
                     'Authorization' : `Bearer ${token}`
                 }
@@ -37,6 +39,7 @@ const Subjects = (props) => {
     }
 
     useEffect (()=>{
+        getToken()
         getSubjects()
     }, [])
 
@@ -51,7 +54,7 @@ const Subjects = (props) => {
     }
 
     const handleClick = (id) => {
-        navigate("/chapters", {state: {data: { userId, id, token}}})
+        navigate("/chapters", {state: {data: { userId, id }}})
     }
 
     const renderSubjects = () => {

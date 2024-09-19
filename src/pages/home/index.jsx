@@ -9,7 +9,7 @@ import useDataStores from "../../stores/dataStores";
 import image1 from "../../assets/image/Grade Image (1).png";
 
 const Home = (props) => {
-  const [isLoading, data, user, getClasses, getToken] = useGetData();
+  const [isLoading, data, user, userId, getClasses, getToken] = useGetData();
   const firstName = user.split(" ")[0];
 
   useEffect(() => {

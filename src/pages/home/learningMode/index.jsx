@@ -38,7 +38,7 @@ const LearningMode = (props) => {
 
   const navigate = useNavigate();
   const handleClick = (id) => {
-    navigate("/subjects", { state: { user: { id, userData } } });
+    navigate("/subjects", { state: { id } });
   };
 
   const { isToggle, setIsToggle } = useDataStores();

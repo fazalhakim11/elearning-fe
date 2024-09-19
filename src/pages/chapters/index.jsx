@@ -6,9 +6,10 @@ import useDataStores from "../../stores/dataStores"
 
 import Loading from "../../components/loading"
 import ChapterCards from "../../components/chapterCards"
+import { axiosJWT } from "../../lib/axios";
 
 const Chapters = (props) => {
-  const {setChapters, isLoading, setIsLoading} = useDataStores()
+  const {setChapters, isLoading, setIsLoading, token} = useDataStores()
   
   const location = useLocation()
   const subjects = location.state?.data
@@ -17,9 +18,9 @@ const Chapters = (props) => {
   const getChapters = async () => {
     try {
       setIsLoading(true)
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/bab/${subjects.id}`,{
+      const res = await axiosJWT.get(`${import.meta.env.VITE_API_URL}/api/bab/${subjects.id}`,{
         headers: {
-          'Authorization' : `Bearer ${subjects.token}`
+          'Authorization' : `Bearer ${token}`
         }
       })
       setChapters(res.data.bab)
@@ -41,7 +42,7 @@ const Chapters = (props) => {
       {isLoading?
         <Loading/>
       : 
-        <ChapterCards userId={userId} token={subjects.token} chapters/>
+        <ChapterCards userId={userId} token={token} chapters/>
       }
     </>
   )

@@ -8,6 +8,7 @@ import Loading from "../../components/loading"
 import Header from "../../components/header"
 import NotFound from "../../components/notFound"
 import YouTubeEmbed from "../../components/youTubeEmbed"
+import { axiosJWT } from "../../lib/axios"
 
 const Materials = (props) => {
     const { materials, setMaterials, isLoading, setIsLoading } = useDataStores()
@@ -19,7 +20,7 @@ const Materials = (props) => {
     const getMaterials = async () => {
         try {
             setIsLoading(true)
-            const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/material/${subChapters.id}`,{
+            const res = await axiosJWT.get(`${import.meta.env.VITE_API_URL}/api/material/${subChapters.id}`,{
                 headers: {
                     'Authorization' : `Bearer ${subChapters.token}`
                 }

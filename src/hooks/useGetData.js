@@ -6,10 +6,11 @@ import useDataStores from "../stores/dataStores";
 import { jwtDecode } from "jwt-decode";
 
 export const useGetData = () => {
-  const { token } = useDataStores();
+  const { token, setToken } = useDataStores();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
   const [user, setUser] = useState("");
+  const [userId, setUserId] = useState();
   const navigate = useNavigate();
 
   const getClasses = async () => {
@@ -42,12 +43,14 @@ export const useGetData = () => {
       );
       setIsLoading(false);
       const decode = jwtDecode(res.data.token);
+      setToken(res.data.token)
       setUser(decode.name);
+      setUserId(decode.id);
     } catch (error) {
       navigate("/login");
       setIsLoading(false);
       console.log(error);
     }
   };
-  return [isLoading, data, user, getClasses, getToken];
+  return [isLoading, data, user, userId, getClasses, getToken];
 };
